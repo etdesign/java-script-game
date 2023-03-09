@@ -8,38 +8,45 @@
     return userInput.charAt(0).toUpperCase() + userInput.slice(1);
   }
   
-  function playRound(playerSelection, computerSelection) {
+  function playRound(playerSelection, computerSelection, playerScore, computerScore) {
     playerSelection = playerSelection.toLowerCase();
   
     switch (playerSelection) {
       case "rock":
         if (computerSelection.toLowerCase() === "scissors") {
-          return `You Win! ${this.capitalize(playerSelection)} beats ${computerSelection}.`;
+          playerScore++;
+          return `You Win! ${capitalize(playerSelection)} beats ${computerSelection}. (Score: ${playerScore}-${computerScore})`;
         } else if (computerSelection.toLowerCase() === "paper") {
-          return `You Lose! ${computerSelection} beats ${this.capitalize(playerSelection)}.`;
+          computerScore++;
+          return `You Lose! ${computerSelection} beats ${capitalize(playerSelection)}. (Score: ${playerScore}-${computerScore})`;
         } else {
-          return "It's a tie!";
+          return "It's a tie! (Score: ${playerScore}-${computerScore})";
         }
       case "paper":
         if (computerSelection.toLowerCase() === "rock") {
-          return `You Win! ${this.capitalize(playerSelection)} beats ${computerSelection}.`;
+          playerScore++;
+          return `You Win! ${capitalize(playerSelection)} beats ${computerSelection}. (Score: ${playerScore}-${computerScore})`;
         } else if (computerSelection.toLowerCase() === "scissors") {
-          return `You Lose! ${computerSelection} beats ${this.capitalize(playerSelection)}.`;
+          computerScore++;
+          return `You Lose! ${computerSelection} beats ${capitalize(playerSelection)}. (Score: ${playerScore}-${computerScore})`;
         } else {
-          return "It's a tie!";
+          return "It's a tie! (Score: ${playerScore}-${computerScore})";
         }
       case "scissors":
         if (computerSelection.toLowerCase() === "paper") {
-          return `You Win! ${this.capitalize(playerSelection)} beats ${computerSelection}.`;
+          playerScore++;
+          return `You Win! ${capitalize(playerSelection)} beats ${computerSelection}. (Score: ${playerScore}-${computerScore})`;
         } else if (computerSelection.toLowerCase() === "rock") {
-          return `You Lose! ${computerSelection} beats ${this.capitalize(playerSelection)}.`;
+          computerScore++;
+          return `You Lose! ${computerSelection} beats ${capitalize(playerSelection)}. (Score: ${playerScore}-${computerScore})`;
         } else {
-          return "It's a tie!";
+          return "It's a tie! (Score: ${playerScore}-${computerScore})";
         }
       default:
         return "Invalid selection. Please choose rock, paper, or scissors.";
     }
   }
+  
   
   function game(numRounds) {
     let playerScore = 0;
@@ -51,8 +58,8 @@
         playerSelection = prompt(`Invalid selection. Please choose Rock, Paper, or Scissors`);
       }
       const computerSelection = computerPlay();
-      
-      const result = playRound(playerSelection, computerSelection);
+  
+      const result = playRound(playerSelection, computerSelection, playerScore, computerScore);
       console.log(result);
   
       if (result.startsWith("You Win!")) {
@@ -60,6 +67,8 @@
       } else if (result.startsWith("You Lose!")) {
         computerScore++;
       }
+  
+      console.log(`Score: ${playerScore}-${computerScore}`);
     }
   
     if (playerScore > computerScore) {
@@ -70,6 +79,8 @@
       console.log(`It's a tie game. (${playerScore} - ${computerScore})`);
     }
   }
+  ``
+  
   
   let numRounds;
 
