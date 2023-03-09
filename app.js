@@ -78,5 +78,5 @@ function computerPlay() {
       break;
     }
   }
-  
+  console.log(`Paper➡️Rock⬇️ \n ⬆️Scissors⬅️`);
   game(numRounds);
