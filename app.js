@@ -54,7 +54,7 @@
   
     for (let i = 1; i <= numRounds; i++) {
       let playerSelection = prompt(`Round ${i}: Choose Rock, Paper, or Scissors`);
-      while (!["rock", "paper", "scissors"].includes(playerSelection.toLowerCase())) {
+      while (!["rock", "paper", "scissors"].includes(playerSelection?.toLowerCase())) {
         playerSelection = prompt(`Invalid selection. Please choose Rock, Paper, or Scissors`);
       }
       const computerSelection = computerPlay();
