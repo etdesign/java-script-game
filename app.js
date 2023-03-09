@@ -9,7 +9,7 @@
   }
   
   function playRound(playerSelection, computerSelection, playerScore, computerScore) {
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection?.toLowerCase();
   
     switch (playerSelection) {
       case "rock":
@@ -54,9 +54,13 @@
   
     for (let i = 1; i <= numRounds; i++) {
       let playerSelection = prompt(`Round ${i}: Choose Rock, Paper, or Scissors`);
-      while (!["rock", "paper", "scissors"].includes(playerSelection?.toLowerCase())) {
-        playerSelection = prompt(`Invalid selection. Please choose Rock, Paper, or Scissors`);
-      }
+      if (playerSelection == null) {
+        console.log("Game cancelled"); 
+        break;
+      } else {
+        while (!["rock", "paper", "scissors"].includes(playerSelection?.toLowerCase())) {
+          playerSelection = prompt(`Invalid selection. Please choose Rock, Paper, or Scissors`);
+        }
       const computerSelection = computerPlay();
   
       const result = playRound(playerSelection, computerSelection, playerScore, computerScore);
@@ -69,7 +73,7 @@
       }
   
       console.log(`Score: ${playerScore}-${computerScore}`);
-    }
+   
   
     if (playerScore > computerScore) {
       console.log(`You won the game! (${playerScore} - ${computerScore})`);
@@ -78,8 +82,12 @@
     } else {
       console.log(`It's a tie game. (${playerScore} - ${computerScore})`);
     }
+      }
+    }
+
+      
   }
-  ``
+  
   
   let numRounds;
 
