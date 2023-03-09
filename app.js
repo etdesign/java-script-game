@@ -1,7 +1,11 @@
-function computerPlay() {
-    const options = ["Rock", "Paper", "Scissors"];
-    const randomIndex = Math.floor(Math.random() * options.length);
-    return options[randomIndex];
+  function computerPlay() {
+      const options = ["Rock", "Paper", "Scissors"];
+      const randomIndex = Math.floor(Math.random() * options.length);
+      return options[randomIndex];
+    }
+
+  function capitalize(userInput) {
+    return userInput.charAt(0).toUpperCase() + userInput.slice(1);
   }
   
   function playRound(playerSelection, computerSelection) {
@@ -10,25 +14,25 @@ function computerPlay() {
     switch (playerSelection) {
       case "rock":
         if (computerSelection.toLowerCase() === "scissors") {
-          return `You Win! ${playerSelection} beats ${computerSelection}.`;
+          return `You Win! ${this.capitalize(playerSelection)} beats ${computerSelection}.`;
         } else if (computerSelection.toLowerCase() === "paper") {
-          return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+          return `You Lose! ${computerSelection} beats ${this.capitalize(playerSelection)}.`;
         } else {
           return "It's a tie!";
         }
       case "paper":
         if (computerSelection.toLowerCase() === "rock") {
-          return `You Win! ${playerSelection} beats ${computerSelection}.`;
+          return `You Win! ${this.capitalize(playerSelection)} beats ${computerSelection}.`;
         } else if (computerSelection.toLowerCase() === "scissors") {
-          return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+          return `You Lose! ${computerSelection} beats ${this.capitalize(playerSelection)}.`;
         } else {
           return "It's a tie!";
         }
       case "scissors":
         if (computerSelection.toLowerCase() === "paper") {
-          return `You Win! ${playerSelection} beats ${computerSelection}.`;
+          return `You Win! ${this.capitalize(playerSelection)} beats ${computerSelection}.`;
         } else if (computerSelection.toLowerCase() === "rock") {
-          return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+          return `You Lose! ${computerSelection} beats ${this.capitalize(playerSelection)}.`;
         } else {
           return "It's a tie!";
         }
