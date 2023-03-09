@@ -20,7 +20,7 @@
           computerScore++;
           return `You Lose! ${computerSelection} beats ${capitalize(playerSelection)}. (Score: ${playerScore}-${computerScore})`;
         } else {
-          return "It's a tie! (Score: ${playerScore}-${computerScore})";
+          return  `It's a tie! (Score: ${playerScore}-${computerScore}) `;
         }
       case "paper":
         if (computerSelection.toLowerCase() === "rock") {
@@ -30,7 +30,7 @@
           computerScore++;
           return `You Lose! ${computerSelection} beats ${capitalize(playerSelection)}. (Score: ${playerScore}-${computerScore})`;
         } else {
-          return "It's a tie! (Score: ${playerScore}-${computerScore})";
+          return  `It's a tie! (Score: ${playerScore}-${computerScore}) `;
         }
       case "scissors":
         if (computerSelection.toLowerCase() === "paper") {
@@ -40,7 +40,7 @@
           computerScore++;
           return `You Lose! ${computerSelection} beats ${capitalize(playerSelection)}. (Score: ${playerScore}-${computerScore})`;
         } else {
-          return "It's a tie! (Score: ${playerScore}-${computerScore})";
+          return  `It's a tie! (Score: ${playerScore}-${computerScore}) `;
         }
       default:
         return "Invalid selection. Please choose rock, paper, or scissors.";
