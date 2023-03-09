@@ -55,7 +55,7 @@
       if (input === null) {
         console.log("Game canceled.");
         break;
-      } 
+      }
       
       let parsedInput = parseInt(input.trim());
     
@@ -63,6 +63,7 @@
         console.log("Please enter a valid positive number.");
       } else {
         numRounds = parsedInput;
+        console.log(`Paper➡️Rock⬇️ \n ⬆️Scissors⬅️`);
         break;
       }
     }
@@ -71,7 +72,6 @@
     let computerScore = 0;
 
     for (let i = 1; i <= numRounds; i++) {
-      console.log(`Paper➡️Rock⬇️ \n ⬆️Scissors⬅️`);
       let playerSelection = prompt(`Round ${i}: Choose Rock, Paper, or Scissors`);
       if (playerSelection == null) {
         console.log("Game cancelled"); 
