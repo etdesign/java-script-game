@@ -84,16 +84,23 @@
   let numRounds;
 
   while (true) {
-    numRounds = prompt("How many rounds do you want to play?");
+    let input = prompt("How many rounds do you want to play?");
     
-    if (numRounds.trim() === "") {
-      console.log("Please enter a valid number.");
-    } else if (isNaN(numRounds)) {
-      console.log("Please enter a valid number.");
+    if (input === null) {
+      console.log("Game canceled.");
+      break;
+    }
+  
+    let parsedInput = parseInt(input.trim());
+  
+    if (isNaN(parsedInput) || parsedInput <= 0) {
+      console.log("Please enter a valid positive number.");
     } else {
+      numRounds = parsedInput;
       break;
     }
   }
+  
   
   console.log(`Paper➡️Rock⬇️ \n ⬆️Scissors⬅️`);
   game(numRounds);
