@@ -81,17 +81,19 @@
   }
   ``
   
-  
   let numRounds;
 
   while (true) {
     numRounds = prompt("How many rounds do you want to play?");
-  
-    if (isNaN(numRounds)) {
+    
+    if (numRounds.trim() === "") {
+      console.log("Please enter a valid number.");
+    } else if (isNaN(numRounds)) {
       console.log("Please enter a valid number.");
     } else {
       break;
     }
   }
+  
   console.log(`Paper➡️Rock⬇️ \n ⬆️Scissors⬅️`);
   game(numRounds);
