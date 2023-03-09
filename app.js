@@ -47,6 +47,7 @@ function computerPlay() {
         playerSelection = prompt(`Invalid selection. Please choose Rock, Paper, or Scissors`);
       }
       const computerSelection = computerPlay();
+      
       const result = playRound(playerSelection, computerSelection);
       console.log(result);
   
