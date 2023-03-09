@@ -79,7 +79,6 @@
       console.log(`It's a tie game. (${playerScore} - ${computerScore})`);
     }
   }
-  ``
   
   let numRounds;
 
