@@ -1,3 +1,8 @@
+let numRounds;
+let playerScore = 0;
+let computerScore = 0;
+
+
   function computerPlay() {
       const options = ["Rock", "Paper", "Scissors"];
       const randomIndex = Math.floor(Math.random() * options.length);
@@ -58,8 +63,7 @@
     }
   }
   
-  
-  function game(numRounds) {
+  function selectRounds() {
     while (true) {
       let input = prompt("How many rounds do you want to play?");
       
@@ -67,7 +71,6 @@
         console.log("Game canceled.");
         break;
       }
-      
       let parsedInput = parseInt(input.trim());
     
       if (isNaN(parsedInput) || parsedInput <= 0) {
@@ -78,12 +81,25 @@
         break;
       }
     }
-      
-    let playerScore = 0;
-    let computerScore = 0;
+  }
+
+  function displayRoundResult(playerSelection, computerSelection, i) {
+    const result = playRound(playerSelection, computerSelection, playerScore, computerScore);
+    console.log(result);
+
+    if (result.startsWith("You Win!")) {
+      playerScore++;
+    } else if (result.startsWith("You Lose!")) {
+      computerScore++;
+    }
+    console.log(`Score: ${playerScore}-${computerScore}`);
+  }
+
+  function playSelectedRounds() {
 
     for (let i = 1; i <= numRounds; i++) {
       let playerSelection = prompt(`Round ${i}: Choose Rock, Paper, or Scissors`);
+      const computerSelection = computerPlay();
       if (playerSelection == null) {
         console.log("Game cancelled"); 
         break;
@@ -92,21 +108,14 @@
           playerSelection = prompt(`Invalid selection. Please choose Rock, Paper, or Scissors`);
         }
       }
-    
-
-      const computerSelection = computerPlay();
-  
-      const result = playRound(playerSelection, computerSelection, playerScore, computerScore);
-      console.log(result);
-  
-      if (result.startsWith("You Win!")) {
-        playerScore++;
-      } else if (result.startsWith("You Lose!")) {
-        computerScore++;
-      }
-  
-      console.log(`Score: ${playerScore}-${computerScore}`);
+      displayRoundResult(playerSelection, computerSelection, i);
     }
+  }
+
+  function game() {
+
+    selectRounds();
+    playSelectedRounds();
   
     if (playerScore > computerScore) {
       console.log(`You won the game! (${playerScore} - ${computerScore})`);
@@ -119,9 +128,4 @@
     }
   }
   
-  
-  let numRounds;
-
-
-  
-    game(numRounds);
+  game(numRounds);
