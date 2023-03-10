@@ -148,7 +148,7 @@ let computerScore = 0;
     } else if (computerScore > playerScore) {
       console.log(`You lost the game. (${playerScore} - ${computerScore})`);
     } else if (!computerScore && !playerScore) {
-      return ("No one wins!");
+      console.log("No one wins!")
     } else {
       console.log(`It's a tie game. (${playerScore} - ${computerScore})`);
     }
