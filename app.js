@@ -174,14 +174,20 @@ let computerScore = 0;
   
     if (playerScore > computerScore) {
       console.log(`You won the game! (${playerScore} - ${computerScore})`);
+      playerScore = 0;
+      computerScore = 0;
       computerRematch();
     } else if (computerScore > playerScore) {
       console.log(`You lost the game. (${playerScore} - ${computerScore})`);
+      playerScore = 0;
+      computerScore = 0;
       userRematch();
     } else if (!computerScore && !playerScore) {
       console.log("No one wins!");
     } else {
       console.log(`It's a tie game. (${playerScore} - ${computerScore})`);
+      playerScore = 0;
+      computerScore = 0;
       decidingMatch();
     }
 
