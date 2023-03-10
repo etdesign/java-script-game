@@ -187,5 +187,4 @@ let computerScore = 0;
 
   }
   
-
   initGame();
