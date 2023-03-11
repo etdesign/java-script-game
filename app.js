@@ -2,12 +2,17 @@
 let numRounds;
 let playerScore = 0;
 let computerScore = 0;
+let init = true;
+
 
   // Init game
   const initGame = () => {
 
     const startGame = confirm("Shall we play rock, paper, scissors?");
-    startGame ? game(numRounds) : alert("Ok, maybe next time.");
+    startGame ? game(numRounds) : 
+    setTimeout(() => {
+      alert("Ok, maybe next time.");
+    }, 100)
 
   }
 
@@ -194,3 +199,4 @@ let computerScore = 0;
   }
   
   initGame();
+  
