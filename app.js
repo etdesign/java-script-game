@@ -189,6 +189,7 @@ let init = true;
       userRematch();
     } else if (!computerScore && !playerScore) {
       console.log("No one wins!");
+      userRematch();
     } else {
       console.log(`It's a tie game. (${playerScore} - ${computerScore})`);
       playerScore = 0;
