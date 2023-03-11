@@ -1,6 +1,6 @@
 # java-script-game
 
-Check out our Project [here] https://github.com/ydaher97/java-script-game/tree/main
+Check out our Project [here] https://ydaher97.github.io/java-script-game/
 
 Rock, paper, scissors with javascript
 
